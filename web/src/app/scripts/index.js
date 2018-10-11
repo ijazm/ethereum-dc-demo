@@ -29,8 +29,6 @@ const App = {
 
             accounts = accs;
             account = accounts[0];
-
-
         });
     },
 
@@ -56,6 +54,7 @@ const App = {
             console.log(e);
         });
     },
+
     getBalance: function () {
         var AccountAddress = document.getElementById("user").value;
         TransferEther.deployed().then(function (instance) {
@@ -109,9 +108,7 @@ const App = {
     }
 };
 
-// window.web3 = new Web3(new Web3.providers.HttpProvider('http://127.0.0.1:7545'))
 window.App = App;
-// App.start();
 
 window.addEventListener('load', function () {
     // Checking if Web3 has been injected by the browser (Mist/MetaMask)
@@ -134,7 +131,7 @@ window.addEventListener('load', function () {
             ' More info here: http://truffleframework.com/tutorials/truffle-and-metamask'
         )
         // fallback - use your fallback strategy (local node / hosted node + in-dapp id mgmt / fail)
-        window.web3 = new Web3(new Web3.providers.HttpProvider('http://jsonrpc'))
+        window.web3 = new Web3(new Web3.providers.HttpProvider('http://'+location.hostname+'/'+'jsonrpc'));
     }
 
     App.start()
