@@ -30,7 +30,7 @@ pipeline {
               sh "sudo docker-compose up -d"
               sh "sudo docker build -t protractor ."
               sh "sudo docker rm -f protractor"
-              //sh "sudo rm -rf ./protractorTest/conf/allure-results/*.xml"
+              sh "sudo rm -rf ./protractorTest/conf/allure-results/*.xml"
               sh "sudo docker run -v /home/ubuntu/workspace/Ethereum-DevOps-Demo/test/conf/allure-results:/test/conf/allure-results -e ETH_APP_URL=$ETH_APP_URL --name protractor protractor"
           }
         }
