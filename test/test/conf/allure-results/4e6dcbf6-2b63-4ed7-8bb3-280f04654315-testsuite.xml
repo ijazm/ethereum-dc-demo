@@ -1,0 +1,47 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1527837947947' stop='1527838086456'>
+    <name>NOTIFICATIONS TEST SCENARIO </name>
+    <title>NOTIFICATIONS TEST SCENARIO </title>
+    <test-cases>
+        <test-case start='1527837947949' status='passed' stop='1527837976121'>
+            <name>this should redirect to Purchasing History</name>
+            <title>this should redirect to Purchasing History</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1527837976121' status='passed' stop='1527837993174'>
+            <name>this should redirect to My Procurement Matches</name>
+            <title>this should redirect to My Procurement Matches</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1527837993174' status='passed' stop='1527838011385'>
+            <name>this should redirect to active-buy-offer-details-awaiting-response </name>
+            <title>this should redirect to active-buy-offer-details-awaiting-response </title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1527838011385' status='passed' stop='1527838046140'>
+            <name>this should redirect to active-buy-offer-details-awaiting-payment</name>
+            <title>this should redirect to active-buy-offer-details-awaiting-payment</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1527838046140' status='passed' stop='1527838086455'>
+            <name>this should dismiss the notification</name>
+            <title>this should dismiss the notification</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

@@ -28,6 +28,7 @@ const App = {
             }
 
             accounts = accs;
+            console.log(accounts);
             account = accounts[0];
         });
     },
@@ -74,7 +75,7 @@ const App = {
             document.getElementById('fileLable').innerHTML = hash; 
             console.log(account);
             TransferEther.deployed().then(function (instance) {
-                instance.store(hash, {from: account});
+                return instance.store(hash, {from: account});
             }).then(function (e) {
                 console.log(e);
             })      
@@ -108,9 +109,22 @@ const App = {
     }
 };
 
+<<<<<<< HEAD
 window.App = App;
+=======
+window.web3 = new Web3(new Web3.providers.HttpProvider('http://'+location.hostname+'/'+'jsonrpc'));
+console.log(web3);
+var accList = web3.eth.accounts;
+console.log(accList);
+window.App = App;
+App.start();
+>>>>>>> a7dfa27c881ea4e010b75599366c3d4bcdc97457
 
-window.addEventListener('load', function () {
+/*window.addEventListener('load', function () {
+    window.web3 = new Web3(new Web3.providers.HttpProvider('http://jsonrpc' ));
+    console.log(web3);
+    var accList = web3.eth.accounts;
+    console.log("accounts"+accList);
     // Checking if Web3 has been injected by the browser (Mist/MetaMask)
     if (typeof web3 !== 'undefined') {
         console.warn(
@@ -135,4 +149,4 @@ window.addEventListener('load', function () {
     }
 
     App.start()
-})
+})*/
