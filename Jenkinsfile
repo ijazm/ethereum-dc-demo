@@ -14,7 +14,7 @@ pipeline {
       steps {
          sh "sudo docker-compose stop" 
          sh "sudo docker-compose up -d"
-         sh "docker-compose logs"  
+         sh "sudo docker-compose logs"  
       }
     }
     
