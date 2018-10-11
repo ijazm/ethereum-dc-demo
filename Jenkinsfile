@@ -20,7 +20,7 @@ pipeline {
     
     stage("Launch Info") {
       steps {
-         echo "http://${ip}:"
+         echo "http://${ip}"
          
            }
        }
