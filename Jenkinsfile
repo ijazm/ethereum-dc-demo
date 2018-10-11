@@ -26,7 +26,7 @@ pipeline {
 
       stage("Protractor testing"){
         steps {
-          dir ("../protractorTest") {
+          dir ("./test") {
               sh "sudo docker-compose up -d"
               sh "sudo docker build -t protractor ."
               //sh "sudo docker rm -f protractor"
