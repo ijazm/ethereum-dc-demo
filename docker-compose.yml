@@ -1,24 +1,69 @@
 version: "3.0"
 
 services:
+  bootnode:
+    build: bootnode
+    volumes:
+    - ./bn.key:/node.key
+    command: ./bootnode -nodekey ./node.key 
+    networks:
+      bcnet:
+        ipv4_address: 172.172.200.200
+
+  evm-01:
+    image: ethereum/client-go
+    env_file:
+    - bn.enode.env
+    command: -bootnodes ${BOOTNODE}
+    networks:
+    - bcnet
+    depends_on:
+    - bootnode
+        
+  evm-02:
+    image: ethereum/client-go
+    env_file:
+    - bn.enode.env
+    command: -bootnodes ${BOOTNODE}
+    networks:
+    - bcnet
+    depends_on:
+    - bootnode
+
   ganache:
     image: trufflesuite/ganache-cli:latest
+    networks:
+    - bcnet
     ports:
-      - 8545:8545
+    - 8545:8545
   web:
     build: web
+    networks:
+    - bcnet
     depends_on:
-      - ganache
+    - ganache
 
   ipfs:
     build: ipfs
     ports:
-     - 5001:5001
+    - 5001:5001
+    networks:
+    - bcnet
 
   scproxy:
     build: nginx-proxy
     ports:
-      - 80:80
+    - 80:80
+    networks:
+    - bcnet
     depends_on:
-      - web
-      - ipfs
+    - web
+    - ipfs
+
+networks:    
+  bcnet:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      - subnet: 172.172.200.0/24
