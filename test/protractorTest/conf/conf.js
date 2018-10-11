@@ -1,5 +1,5 @@
 exports.config = {
-  directConnect: true,
+  seleniumAddress:"http://172.31.83.0:4444/wd/hub",
   capabilities: {
     'browserName': 'chrome',
     chromeOptions: {
