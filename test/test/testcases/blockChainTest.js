@@ -1,4 +1,4 @@
-var host_input = require('./inputdata/blockChain.json');
+var host_input = require('./inputData/blockChain.json');
 require('dotenv').load();
 var appUrl = process.env.ETH_APP_URL;
 describe('Login', function() {
