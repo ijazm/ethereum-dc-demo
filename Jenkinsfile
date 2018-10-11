@@ -38,7 +38,7 @@ pipeline {
     }
  post {
    always {
-     dir ( "./test/conf/" ) { 
+     dir ( "./test/test/conf/" ) { 
         allure includeProperties: false, jdk: '', results: [[path: 'allure-results']]
      }
    }  
