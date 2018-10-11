@@ -8,7 +8,7 @@ exports.config = {
   },
   framework: 'jasmine',
   onPrepare: function () {
-  var AllureReporter = require('../test/node_modules/jasmine-allure-reporter');
+  var AllureReporter = require('../node_modules/jasmine-allure-reporter');
   jasmine.getEnv().addReporter(new AllureReporter({
   resultsDir: 'allure-results'
   }));
