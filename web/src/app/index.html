@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Truffle Webpack Demo w/ Frontend</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <script src="./app.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa|Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Quicksand" rel="stylesheet">
+</head>
+<style>
+  .boxShadow {
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, .5)!important;
+  }
+  .one-edge-shadow {
+    -webkit-box-shadow: 0px 3px 11px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 3px 11px 0px rgba(0,0,0,0.75);
+box-shadow: 0px 3px 11px 0px rgba(0,0,0,0.75);
+/*     
+	-webkit-box-shadow: 0 8px 6px -6px black;
+	   -moz-box-shadow: 0 8px 6px -6px black;
+	        box-shadow: 0 8px 6px -6px black; */
+}
+
+.font{
+  font-family: 'Open Sans', sans-serif;
+font-family: 'Comfortaa', cursive;
+}
+.fontQuick{
+  font-family: 'Quicksand', sans-serif;
+}
+
+  .bg-primary {
+    background-color: #563d7c !important;
+  }
+
+  button.bg-primary:hover {
+    background-color: #7758a5!important;
+  }
+
+  .form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #49505742 !important;
+    outline: 0;
+    box-shadow: 0 0 0 0.1rem rgba(68, 50, 81, 0.15) !important;
+  }
+  .f15{
+    font-size:15px;
+  }
+  .pr-5, .px-5 {
+    padding-right: 6rem!important;
+}
+input[type="file"] {
+    display: none;
+}
+.bold{
+  font-weight: bold;
+}
+.height{
+  height: 40px;
+}
+
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+  /* style plugin */
+  /*  */
+</style>
+<script>
+  
+  function getBalancedetail() {
+    App.getBalance();
+  }
+
+  function getFileName(){
+  var textLable = document.getElementById("fileLable");
+  var file = $('#file-upload')[0].files[0].name;
+  textLable.innerHTML = file;
+  
+  }
+ 
+</script>
+
+<body>
+
+
+  <div class="mb-5 boxShadow p-0">
+    <nav class="navbar navbar-expand-sm one-edge-shadow bg-primary shadow-sm navbar-light fixed-top">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link text-white text-center font">COMORIN CONSULTING SERVICE IND PVT LTD.</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div class=" mt-5 pb-2 one-edge-shadow bg-primary">
+    <!-- <p class="text-white">Blockchain</p> -->
+    <br>
+    <span class="text-white mt-2 height font pl-4">BLOCKCHAIN</span>
+  </div>
+
+  <form class="pt-5 pl-0 pr-5" autocomplete="on">
+    <br>
+    <div class="form-group row">
+      <label for="Name" class="col-sm-2 col-form-label bold text-right">From address:</label>
+      <div class="col-sm-4">
+        <input class="form-control f15" type="text" id="From" placeholder="e.g.,0x93e66d9baea28c17d9fc393b53e3fbdd76899dae ">
+      </div>
+      <label for="Name" class="col-sm-2 col-form-label bold text-right">Transaction hash:</label>
+      <div class="col-sm-4">
+        <input class="form-control f15" type="text" id="tx" >
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="Name" class="col-sm-2 col-form-label bold text-right">To address:</label>
+      <div class="col-sm-4">
+        <input class="form-control f15" type="text" id="To" placeholder="e.g.,0x93e66d9baea28c17d9fc393b53e3fbdd76899dae ">
+      </div>
+      <label for="Name" class="col-sm-2 col-form-label bold text-right">Gas used:</label>
+      <div class="col-sm-4">
+        <input class="form-control f15" type="text" id="gas" >
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="Name" class="col-sm-2 col-form-label bold text-right">Ether:</label>
+      <div class="col-sm-4">
+        <input class="form-control f15" type="text" id="value" >
+        <a id="send" class="bg-primary text-white btn mt-4 col-sm-3" onclick="App.Transfer()">Transfer</a>
+      </div>
+      <label for="Name" class="col-sm-2 col-form-label bold text-right">Status:</label>
+      <div class="col-sm-4 ">
+        <input class="form-control f15" type="text" id="status" >
+        <!-- <a id="send" class="bg-primary text-white btn mt-4 col-sm-3" onclick="App.Transfer()">Transfer</a> -->
+        <label for="file-upload" class="bg-primary text-white btn mt-4 col-sm-3">
+            Upload
+        </label>
+        <input type="file" id="file-upload" onchange="App.fileUploadOnchange()" name="fileread" />
+        <div>
+            <label id="fileLable">No file choosen</label>
+        </div>
+        
+      </div>
+    </div>
+    <br>
+    <div class="form-group row">
+      <label for="Name" class="col-sm-2 col-form-label bold text-right">Address:</label>
+      <div class="col-sm-4">
+        <input class="form-control" type="text" id="user" placeholder="e.g.,0x93e66d9baea28c17d9fc393b53e3fbdd76899dae ">
+        <a id="send1" class="bg-primary btn text-white mt-4 col-sm-3" onclick="getBalancedetail()">getBalance</a>
+      </div>
+    </div>
+    <div class="form-group row mt-2">
+      <label for="Name" class="col-sm-2 col-form-label bold text-right">Ether Balance:</label>
+      <div class="col-sm-4">
+        <input class="form-control text-dark" type="text" id="result">
+      </div>
+    </div>
+  </form>
+</body>
+
+</html>
