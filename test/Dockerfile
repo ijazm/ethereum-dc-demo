@@ -1,7 +1,7 @@
 FROM node:9.11.1
-COPY protractorTest /protrcatorTest
-WORKDIR /protractorTest  
+COPY test /test
+WORKDIR /test  
 RUN npm install
 RUN npm install -g protractor
-WORKDIR /protractorTest/conf
+WORKDIR /test/conf
 ENTRYPOINT ["protractor", "conf.js"]

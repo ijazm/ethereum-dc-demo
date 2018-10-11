@@ -20,7 +20,7 @@ pipeline {
     
       stage("Launch Info") {
         steps {
-          echo "http://${ip}:"
+          echo "http://${ip}"
         }
       }
 
@@ -31,14 +31,14 @@ pipeline {
               sh "sudo docker build -t protractor ."
               sh "sudo docker rm -f protractor"
               //sh "sudo rm -rf ./protractorTest/conf/allure-results/*.xml"
-              sh "sudo docker run -v /home/ubuntu/workspace/Ethereum-DevOps-Demo/protractorTest/conf/allure-results:/ProtractorTest/conf/allure-results -e ETH_APP_URL=$ETH_APP_URL --name protractor protractor"
+              sh "sudo docker run -v /home/ubuntu/workspace/Ethereum-DevOps-Demo/test/conf/allure-results:/test/conf/allure-results -e ETH_APP_URL=$ETH_APP_URL --name protractor protractor"
           }
         }
       }  
     }
  post {
    always {
-     dir ( "./protractorTest/conf/" ) { 
+     dir ( "./test/conf/" ) { 
         allure includeProperties: false, jdk: '', results: [[path: 'allure-results']]
      }
    }  
