@@ -17,8 +17,8 @@
     crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css?family=Comfortaa|Open+Sans" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Quicksand" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Comfortaa|Open+Sans" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Quicksand" rel="stylesheet">
 </head>
 <style>
   .boxShadow {
@@ -28,10 +28,6 @@
     -webkit-box-shadow: 0px 3px 11px 0px rgba(0,0,0,0.75);
 -moz-box-shadow: 0px 3px 11px 0px rgba(0,0,0,0.75);
 box-shadow: 0px 3px 11px 0px rgba(0,0,0,0.75);
-/*     
-	-webkit-box-shadow: 0 8px 6px -6px black;
-	   -moz-box-shadow: 0 8px 6px -6px black;
-	        box-shadow: 0 8px 6px -6px black; */
 }
 
 .font{
@@ -46,10 +42,13 @@ font-family: 'Comfortaa', cursive;
     background-color: #563d7c !important;
   }
 
-  button.bg-primary:hover {
-    background-color: #7758a5!important;
+  .bg-primary:hover {
+    background-color: #7758a5 !important;
   }
-
+  a.bg-primary:hover, button.bg-primary:focus, button.bg-primary:hover {
+    background-color: #7758a5e7 !important;
+}
+  
   .form-control:focus {
     color: #495057;
     background-color: #fff;
@@ -72,6 +71,9 @@ input[type="file"] {
 .height{
   height: 40px;
 }
+.borBtm{
+  border-bottom:4px solid #563d7c;
+}
 
 .inputfile {
 	width: 0.1px;
@@ -81,27 +83,32 @@ input[type="file"] {
 	position: absolute;
 	z-index: -1;
 }
+.bgimg {
+    background-image: url('https://agilelab.sg/assets/blockchain/blockchain-7820db5cd17ed91a214ede20bfbe02ca.gif');
+    opacity: 0.5;
+}
+#demo{
+  cursor: pointer;
+}
+.borderStyle{
+  border-radius: 42px 100px 40px 70px;
+    background-color: #563d7c;
+}
+.mt8{
+  margin-top:8px;
+}
   /* style plugin */
-  /*  */
 </style>
 <script>
-  
-  function getBalancedetail() {
-    App.getBalance();
-  }
+  function getFileName() {
+    var textLable = document.getElementById("fileLable");
+    var file = $('#file-upload')[0].files[0].name;
+    textLable.innerHTML = file;
 
-  function getFileName(){
-  var textLable = document.getElementById("fileLable");
-  var file = $('#file-upload')[0].files[0].name;
-  textLable.innerHTML = file;
-  
   }
- 
 </script>
 
 <body>
-
-
   <div class="mb-5 boxShadow p-0">
     <nav class="navbar navbar-expand-sm one-edge-shadow bg-primary shadow-sm navbar-light fixed-top">
       <ul class="navbar-nav">
@@ -112,69 +119,127 @@ input[type="file"] {
     </nav>
   </div>
   <div class=" mt-5 pb-2 one-edge-shadow bg-primary">
-    <!-- <p class="text-white">Blockchain</p> -->
     <br>
     <span class="text-white mt-2 height font pl-4">BLOCKCHAIN</span>
   </div>
-
-  <form class="pt-5 pl-0 pr-5" autocomplete="on">
+  <form class="pt-5 pl-0 pr-5" autocomplete="off">
     <br>
-    <div class="form-group row">
-      <label for="Name" class="col-sm-2 col-form-label bold text-right">From address:</label>
-      <div class="col-sm-4">
-        <input class="form-control f15" type="text" id="From" placeholder="e.g.,0x93e66d9baea28c17d9fc393b53e3fbdd76899dae ">
-      </div>
-      <label for="Name" class="col-sm-2 col-form-label bold text-right">Transaction hash:</label>
-      <div class="col-sm-4">
-        <input class="form-control f15" type="text" id="tx" >
-      </div>
-    </div>
-
-    <div class="form-group row">
-      <label for="Name" class="col-sm-2 col-form-label bold text-right">To address:</label>
-      <div class="col-sm-4">
-        <input class="form-control f15" type="text" id="To" placeholder="e.g.,0x93e66d9baea28c17d9fc393b53e3fbdd76899dae ">
-      </div>
-      <label for="Name" class="col-sm-2 col-form-label bold text-right">Gas used:</label>
-      <div class="col-sm-4">
-        <input class="form-control f15" type="text" id="gas" >
-      </div>
-    </div>
-    <div class="form-group row">
-      <label for="Name" class="col-sm-2 col-form-label bold text-right">Ether:</label>
-      <div class="col-sm-4">
-        <input class="form-control f15" type="text" id="value" >
-        <a id="send" class="bg-primary text-white btn mt-4 col-sm-3" onclick="App.Transfer()">Transfer</a>
-      </div>
-      <label for="Name" class="col-sm-2 col-form-label bold text-right">Status:</label>
-      <div class="col-sm-4 ">
-        <input class="form-control f15" type="text" id="status" >
-        <!-- <a id="send" class="bg-primary text-white btn mt-4 col-sm-3" onclick="App.Transfer()">Transfer</a> -->
-        <label for="file-upload" class="bg-primary text-white btn mt-4 col-sm-3">
-            Upload
-        </label>
-        <input type="file" id="file-upload" onchange="App.fileUploadOnchange()" name="fileread" />
-        <div>
-            <label id="fileLable">No file choosen</label>
+    <div class="col-sm-12">
+      <div class="row">
+        <div class="col-sm-6 offset-sm-1">
+          <div class="col-sm-12 form-group">
+            <div class="row">
+              <label for="Name" class="col-sm-2 offset-sm-1 col-form-label bold text-right">From address:</label>
+              <div class="col-sm-8">
+                <input class="form-control f15" type="text" id="From" placeholder="e.g.,0x93e66d9baea28c17d9fc393b53e3fbdd76899dae ">
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12 form-group">
+            <div class="row">
+              <label for="Name" class="col-sm-2 offset-sm-1 col-form-label bold text-right">To address:</label>
+              <div class="col-sm-8">
+                <input class="form-control f15" type="text" id="To" placeholder="e.g.,0x93e66d9baea28c17d9fc393b53e3fbdd76899dae ">
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12 form-group">
+            <div class="row">
+              <label for="Name" class="col-sm-2 offset-sm-1 col-form-label bold text-right">Ether:</label>
+              <div class="col-sm-8">
+                <input class="form-control f15" type="text" id="value">
+                <div class="row">
+                  <label class="col-sm-4">
+                    <a id="send" class="bg-primary btn text-white mt-4 col-sm-12" onclick="App.Transfer()">Transfer</a>
+                  </label>
+                  <label for="file-upload" class="bg-primary text-white btn mt-4 col-sm-3">
+                    Upload
+                  </label>
+                  <input type="file" id="file-upload" onchange="App.fileUploadOnchange()" name="fileread" />
+                  <label id="fileLable" class="mt-4 ml-3 pt-1">No file choosen</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- transaction receipt -->
+          <div class="col-sm-12 form-group">
+            <div class="row">
+              <label for="Name" id="transTitle" class="col-sm-3 col-form-label bold text-right"></label>
+              <div class="col-sm-8">
+                <label class="f15 mt8 " type="text" id="tx"></label>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12 form-group">
+            <div class="row">
+              <label for="Name" id="blockNumberTitle" class="col-sm-3 col-form-label bold text-right"></label>
+              <div class="col-sm-8">
+                <label class="f15 mt8 " type="text" id="blockNumber"></label>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12 form-group">
+            <div class="row">
+              <label for="Name" id="gasTitle" class="col-sm-2 offset-sm-1 col-form-label bold text-right"></label>
+              <div class="col-sm-8">
+                <label class="f15 mt8 " type="text" id="gas"></label>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12 form-group">
+            <div class="row">
+              <label for="Name" id="statusTitle" class="col-sm-2 offset-sm-1 col-form-label bold text-right"></label>
+              <div class="col-sm-8">
+                <label class="f15 mt8 " type="text" id="status"></label>
+              </div>
+            </div>
+          </div>
         </div>
-        
-      </div>
-    </div>
-    <br>
-    <div class="form-group row">
-      <label for="Name" class="col-sm-2 col-form-label bold text-right">Address:</label>
-      <div class="col-sm-4">
-        <input class="form-control" type="text" id="user" placeholder="e.g.,0x93e66d9baea28c17d9fc393b53e3fbdd76899dae ">
-        <a id="send1" class="bg-primary btn text-white mt-4 col-sm-3" onclick="getBalancedetail()">getBalance</a>
-      </div>
-    </div>
-    <div class="form-group row mt-2">
-      <label for="Name" class="col-sm-2 col-form-label bold text-right">Ether Balance:</label>
-      <div class="col-sm-4">
-        <input class="form-control text-dark" type="text" id="result">
+
+        <!-- ether balance chk -->
+        <div class="col-sm-5">
+          <div class="col-sm-12 form-group">
+            <div class="row">
+              <label for="Name" class="col-sm-2 col-form-label bold text-right">Address:</label>
+              <div class="col-sm-8">
+                <input class="form-control" type="text" id="user" placeholder="e.g.,0x93e66d9baea28c17d9fc393b53e3fbdd76899dae ">
+                <a id="send1" class="bg-primary btn text-white mt-4 col-sm-4" onclick="App.getBalance()">getBalance</a>
+                <div class="mt-2">
+                  <div class="row">
+                    <span for="Name" class="col-sm-8  bold text-left">Ether Balance: <span class="f15 mt8" type="text"
+                        id="result"></span>
+                    </span>
+                    <b></b>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12 form-group">
+            <div class="row">
+              <label for="Name" class="col-sm-2 col-form-label bold text-right"></label>
+              <div class="col-sm-8">
+                <span class="mt-3 mb-2">
+                  <txt class="borBtm mb-3">Account Address</txt>
+                </span>
+                <p></p>
+                <p id="demo"></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12 form-group">
+            <div class="row">
+              <div class="col-sm-6 mt-3 mb-2 ">
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </form>
 </body>
 
 </html>
+
+
+

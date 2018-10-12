@@ -44,14 +44,14 @@ services:
     - ganache
 
   web-01:
-    build: web01
+    build: web-01
     networks:
     - bcnet
     depends_on:
     - evm-01
 
   web-02:
-    build: sweb02
+    build: web-02
     networks:
     - bcnet
     depends_on:
@@ -73,6 +73,8 @@ services:
     depends_on:
     - web
     - ipfs
+    - evm-01
+    - evm-02
 
 networks:    
   bcnet:
